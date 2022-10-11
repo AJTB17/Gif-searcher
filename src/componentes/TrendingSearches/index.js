@@ -24,15 +24,12 @@ export default function LazyTrending(){
                 setShow(true)
             }
         }
-        const observer = new IntersectionObserver(onChange, 
-        {
-            rootMargin: '100px'
-        })
-        // observer.observer(elementRef.current)
+        const observer = new IntersectionObserver(onChange)
+        observer.observe(elementRef.current)
     })
     
     return <div ref={elementRef}>
-        {<TrendingSearches /> }
+        {show ? <TrendingSearches /> : null}
     </div>
 
 }
