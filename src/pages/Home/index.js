@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useLocation } from 'wouter'
 
 import ListOfGifs from "componentes/ListOfGifs"
-import TrendingSearches from "componentes/TrendingSearches"
+import LazyTrending from "componentes/TrendingSearches"
 import useGifs from "hooks/useGifs"
 
 
@@ -29,7 +29,7 @@ export default function Home(){
             <h3 className="App-title">Ultima busqueda</h3>
             <ListOfGifs gifs={gifs} />
             <div className="App-category">
-                <TrendingSearches />
+                <LazyTrending />
             </div>
         </>
     )
