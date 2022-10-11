@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import { Link, useLocation } from 'wouter'
+import { useLocation } from 'wouter'
 
-import ListOfGifs from "../../componentes/ListOfGifs"
-import useGifs from "../../hooks/useGifs"
+import ListOfGifs from "componentes/ListOfGifs"
+import TrendingSearches from "componentes/TrendingSearches"
+import useGifs from "hooks/useGifs"
 
-const POPULAR_GIFS = ["Bleach", "Nutrias", "Jhin", "gatos"]
 
 export default function Home(){
     const [keyword, setKeyword] = useState('')
@@ -28,16 +28,9 @@ export default function Home(){
             </form>
             <h3 className="App-title">Ultima busqueda</h3>
             <ListOfGifs gifs={gifs} />
-            <h3 className="App-title">Los gifs mas populares</h3>
-            <ul>
-                {
-                    POPULAR_GIFS.map((popularGifs) => (
-                        <li key={popularGifs}>
-                            <Link to={`/search/${popularGifs}`}>Gifs de {popularGifs}</Link>
-                        </li>
-                    ))
-                }
-            </ul>
+            <div className="App-category">
+                <TrendingSearches />
+            </div>
         </>
     )
 }
